@@ -8,7 +8,6 @@
     </style>
 </head>
 <body>
-    <h2>Numeri divisibili per 3 tra 0 e 100</h2>
     <table>
         <tr>
             <th>Numero</th>
