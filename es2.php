@@ -14,13 +14,13 @@
         }
 
         $max = max($numeri);
-        echo "Massimo dell'array $max <br>";
+        echo "Massimo dell'array: $max <br>";
         $min = min($numeri);
-        echo "Minimo dell'array $min <br>";
+        echo "Minimo dell'array: $min <br>";
 
         $count = count($numeri);
         $media = $count > 0 ? array_sum($numeri) / $count : 0;
-        echo "Media dell'array $media <br>";
+        echo "Media: " . number_format($media, 2) . "<br>";
 
         $reversed_num = array_reverse($numeri);
         echo "Array inverso: <br>";
