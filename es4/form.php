@@ -13,7 +13,7 @@
         <input type="text" id="nome" name="nome" required><br><br>
 
         <label for="cognome">Età:</label>
-        <input type="text" id="eta" name="eta" required><br><br>
+        <input type="number" id="eta" name="eta" min="0" max="100" required><br><br>
 
         <p>Dati cliente:</p>
         <input type="radio" id="mensile" name="pagamento" value="Mensile" required>
