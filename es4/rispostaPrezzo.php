@@ -11,8 +11,8 @@
     <?php
         $output = "";
         $prezzo = 0;
-        $totale_utenti = isset($_POST['totale_utenti']) ? (int)$_POST['totale_utenti'] : 0;
-        $guadagno_totale = isset($_POST['guadagno_totale']) ? (float)$_POST['guadagno_totale'] : 0;
+        $totale_utenti = $_POST['totale_utenti'];
+        $guadagno_totale = $_POST['guadagno_totale'];
 
         if (isset($_POST['nome']) && isset($_POST['eta']) && isset($_POST['pagamento'])) {
             $nome = htmlspecialchars($_POST['nome']);
