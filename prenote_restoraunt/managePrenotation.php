@@ -24,7 +24,7 @@ if (
     !in_array("Primo", $food) &&
     !in_array("Secondo", $food)
 ) {
-    $errorAntipasto = "Non puoi ordinare solo antipasto.";
+    $errorAntipasto = "Non puoi ordinare solo antipasto";
 }
 
 $antipasto = 5;
