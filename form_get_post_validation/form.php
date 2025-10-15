@@ -10,6 +10,8 @@
 
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <?php
+
+    //the same for post
     function sanitize_input($data) {
         $data = trim($data);                // Rimuove spazi bianchi iniziali e finali
         $data = stripslashes($data);        // Rimuove backslash
