@@ -41,7 +41,7 @@
         }
 
         if (empty($errors)) {
-            echo "<div style='color: green; font-weight: bold;'>Dati ricevuti correttamente!</div>";
+            echo "<div style='color: green; font-weight: bold;'>Dati ricevuti correttamente</div>";
             echo "<ul>";
             echo "<li>Nome: $name</li>";
             echo "<li>Email: $email</li>";
