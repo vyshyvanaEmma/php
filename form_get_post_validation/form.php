@@ -43,19 +43,33 @@
         }
 
         if (empty($errors)) {
-            echo "<div style='color: green; font-weight: bold;'>Dati ricevuti correttamente</div>";
-            echo "<ul>";
-            echo "<li>Nome: $name</li>";
-            echo "<li>Email: $email</li>";
-            echo "<li>Messaggio: $message</li>";
-            echo "</ul>";
+            echo "
+            <div class='bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4' role='alert'>
+                <strong class='font-bold'>Successo!</strong>
+                <span class='block'>Dati ricevuti correttamente.</span>
+            </div>
+
+            <div class='bg-white shadow-md rounded p-6'>
+                <h2 class='text-lg font-semibold text-gray-800 mb-4'>Dettagli inviati:</h2>
+                <ul class='list-disc list-inside text-gray-700 space-y-1'>
+                    <li><span class='font-medium text-gray-900'>Nome:</span> $name</li>
+                    <li><span class='font-medium text-gray-900'>Email:</span> $email</li>
+                    <li><span class='font-medium text-gray-900'>Messaggio:</span> $message</li>
+                </ul>
+            </div>
+            ";
         } else {
-            echo "<div style='color: red; font-weight: bold;'>Errore:</div>";
-            echo "<ul>";
-            foreach ($errors as $error) {
-                echo "<li>$error</li>";
-            }
-            echo "</ul>";
+            echo "
+            <div class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4' role='alert'>
+                <strong class='font-bold'>Errore!</strong>
+                <span class='block mb-2'>Si sono verificati alcuni problemi:</span>
+                <ul class='list-disc list-inside text-red-700'>";
+                    foreach ($errors as $error) {
+                        echo "<li>$error</li>";
+                    }
+            echo "</ul>
+            </div>
+            ";
         }
     }
     ?>
