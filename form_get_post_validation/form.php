@@ -61,7 +61,7 @@
     ?>
     <!-- result with get: http://localhost/php/form_get_post_validation/getForm.php?name=FDDFs&email=girasoleerika%40gmail.com&message=fdsfds-->
     <!-- result with post: http://localhost/php/form_get_post_validation/getForm.php -->
-    <form action="getForm.php" method="POST" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg space-y-6" oninput="validateForm()">
+    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>"  method="GET" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg space-y-6" oninput="validateForm()">
         <div class="space-y-4">
             <div>
                 <label class="block text-gray-700 font-semibold">Nome: </label>
