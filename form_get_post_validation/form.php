@@ -13,19 +13,19 @@
     <!-- result with get: http://localhost/php/form_get_post_validation/getForm.php?name=FDDFs&email=girasoleerika%40gmail.com&message=fdsfds-->
     <!-- result with post: http://localhost/php/form_get_post_validation/getForm.php -->
     
-    <form action="process.php" method="GET" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg space-y-6" oninput="validateForm()">
+     <form action="process.php" method="POST" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg space-y-6" oninput="validateForm()">
         <div class="space-y-4">
             <div>
                 <label class="block text-gray-700 font-semibold">Nome: </label>
-                <input type="text" inputmode="text" pattern="^[a-zA-Z\s]+$" id="name" name="name" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="text" inputmode="text" pattern="^[a-zA-ZÀ-ÿ\s]+$" id="name" name="name" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
             <div>
                 <label class="block text-gray-700 font-semibold">Email: </label>
-                <input type="text" id="email" name="email" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="email" id="email" name="email" required class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
             <div>
                 <label class="block text-gray-700 font-semibold">Messaggio: </label>
-                <input type="text" id="message" name="message" maxlength="300" class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <textarea id="message" name="message" maxlength="300" class="mt-1 w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
             </div>
         </div>
 

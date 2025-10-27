@@ -1,22 +1,22 @@
 <?php
-//the same for post
+// Funzione per sanificare l'input
 function sanitize_input($data) {
     $data = trim($data);                // Rimuove spazi bianchi iniziali e finali
     $data = stripslashes($data);        // Rimuove backslash
-    $data = htmlspecialchars($data);    // Converte caratteri speciali (anti-XSS)
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');    // Converte caratteri speciali (anti-XSS)
     return $data;
 }
 
-$name = isset($_GET['name']) ? sanitize_input($_GET['name']) : '';
-$email = isset($_GET['email']) ? sanitize_input($_GET['email']) : '';
-$message = isset($_GET['message']) ? sanitize_input($_GET['message']) : '';
+$name = isset($_POST['name']) ? sanitize_input($_POST['name']) : '';
+$email = isset($_POST['email']) ? sanitize_input($_POST['email']) : '';
+$message = isset($_POST['message']) ? sanitize_input($_POST['message']) : '';
 
 $errors = [];
 
-if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($_GET)) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST)) {
     if (empty($name)) {
         $errors[] = "Il nome e' obbligatorio.";
-    } elseif (!preg_match("/^[a-zA-Z\s]+$/", $name)) {
+    } elseif (!preg_match("/^[a-zA-ZÀ-ÿ\s]+$/u", $name)) {
         $errors[] = "Il nome puo' contenere solo lettere e spazi.";
     }
 
@@ -57,15 +57,18 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($_GET)) {
             </ul>
         </div>
         ";
+        header("Location: thankyou.php");
     } else {
         echo "
         <div class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4' role='alert'>
             <strong class='font-bold'>Errore!</strong>
             <span class='block mb-2'>Si sono verificati alcuni problemi:</span>
             <ul class='list-disc list-inside text-red-700'>";
+
                 foreach ($errors as $error) {
                     echo "<li>$error</li>";
                 }
+
         echo "</ul>
         </div>
         ";
@@ -75,5 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($_GET)) {
     <a href='form.php' class='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition'>Torna al form</a>
     </body>
     </html>";
+
+
 }
 ?>
