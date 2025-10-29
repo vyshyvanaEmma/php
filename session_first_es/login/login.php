@@ -1,22 +1,16 @@
 <?php
 session_start();
 
-$valid_username = 'admin';
-$valid_password = 'admin1234';
-
-$error = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    if ($username === $valid_username && $password === $valid_password) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
-        header("Location: home.php");
-        exit();
-    } else {
-        $error = "Credenziali non valide.";
+$_SESSION['username'] = 'admin';
+$_SESSION['password'] = 'admin1234';
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        if ($_POST['username'] === $_SESSION['username'] && $_POST['password'] === $_SESSION['password']) {
+            echo "Login successo";
+            header("Location: home.php");
+        } else {
+            echo "Credenziali non valide";
+        }
     }
 }
 ?>
@@ -34,12 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center min-h-screen">
     <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
         <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">Login</h1>
-
-        <?php if ($error): ?>
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-                <?= htmlspecialchars($error) ?>
-            </div>
-        <?php endif; ?>
 
         <form method="POST" class="space-y-5">
             <div>
