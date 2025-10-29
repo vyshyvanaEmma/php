@@ -10,7 +10,7 @@ if (!isset($_SESSION['contatore'])) {
 
 // reset
 if (isset($_POST['azzera'])) {
-    session_unset();
+    session_destroy();
     header("Location: visite.php");
 }
 ?>
