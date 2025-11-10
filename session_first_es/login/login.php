@@ -34,22 +34,22 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         <!-- Messaggio di errore -->
         <?php if (!empty($error)): ?>
-            <div id="alert" class="mb-4 flex items-start gap-3 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3">
-                <svg class="w-6 h-6 flex-shrink-0 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8v4m0 4h.01M21 12A9 9 0 1112 3a9 9 0 019 9z"></path>
-                </svg>
+        <div id="alert" class="mb-4 flex items-start gap-3 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3">
+            <svg class="w-6 h-6 flex-shrink-0 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4m0 4h.01M21 12A9 9 0 1112 3a9 9 0 019 9z"></path>
+            </svg>
 
-                <div class="flex-1">
-                    <p class="font-semibold">Errore</p>
-                    <p class="text-sm"><?php echo htmlspecialchars($error, ENT_QUOTES); ?></p>
-                </div>
-
-                <button id="closeAlert" class="text-red-500 hover:text-red-700" aria-label="Chiudi">
-                    &times;
-                </button>
+            <div class="flex-1">
+                <p class="font-semibold">Errore</p>
+                <p class="text-sm"><?php echo htmlspecialchars($error, ENT_QUOTES); ?></p>
             </div>
+
+            <button id="closeAlert" class="text-red-500 hover:text-red-700" aria-label="Chiudi">
+                &times;
+            </button>
+        </div>
         <?php endif; ?>
 
         <form method="POST" class="space-y-5">
