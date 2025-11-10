@@ -1,15 +1,34 @@
 <?php
 session_start();
 
-$_SESSION['tavolo'] = $_POST['tables'];
+$cameriere = $_SESSION['cameriere']; 
+$numTavolo = $_POST['tables'];
 
 if (isset($_POST['piatti'])) {
-    $_SESSION['piatti'] = $_POST['piatti'];
+    $piatti = $_POST['piatti'];
+} else {
+    $piatti = array();
 }
 
 if (isset($_POST['quantita'])) {
-    $_SESSION['quantita'] = $_POST['quantita'];
+    $quantita = $_POST['quantita'];
+} else {
+    $quantita = array();
 }
+
+
+if (!isset($_SESSION['ordini'])) {
+    $_SESSION['ordini'] = array();
+}
+
+if (!isset($_SESSION['ordini'][$cameriere])) {
+    $_SESSION['ordini'][$cameriere] = array();
+}
+
+$_SESSION['ordini'][$cameriere][$numTavolo] = array(
+    'piatti' => $piatti,
+    'quantita' => $quantita
+);
 
 ?>
 <!DOCTYPE html>
