@@ -78,11 +78,11 @@ $prenotazione = $prenotazione_aggiornata;
 
         <label for="tipo">Tipo di Campo:</label>
         <select id="tipo" name="tipo" required>
-            <option value="Calcio" <?= ($prenotazione['tipo'] ?? '') == 'Calcio' ? 'selected' : '' ?>>Calcio</option>
-            <option value="Tennis" <?= ($prenotazione['tipo'] ?? '') == 'Tennis' ? 'selected' : '' ?>>Tennis</option>
-            <option value="Pallavolo" <?= ($prenotazione['tipo'] ?? '') == 'Pallavolo' ? 'selected' : '' ?>>Pallavolo</option>
-            <option value="Basket" <?= ($prenotazione['tipo'] ?? '') == 'Basket' ? 'selected' : '' ?>>Basket</option>
-            <option value="Padel" <?= ($prenotazione['tipo'] ?? '') == 'Padel' ? 'selected' : '' ?>>Padel</option>
+            <option value="Calcio">Calcio</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Pallavolo">Pallavolo</option>
+            <option value="Basket">Basket</option>
+            <option value="Padel">Padel</option>
         </select><br><br>
 
         <button type="submit">Salva Modifiche</button>
