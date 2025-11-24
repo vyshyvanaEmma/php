@@ -31,10 +31,14 @@ if (isset($_POST['num'])) {
         header("Location: win_page.php");
         exit();
     } else {
-        $consiglio = $num > $_SESSION['numero'] ? "Il numero è troppo grande" : "Il numero è troppo piccolo";
+        if($num > $_SESSION['numero']){
+            $consiglio = "Il numero è troppo grande";
+        }else{
+            $consiglio = "Il numero è troppo piccolo";
+        }
         $_SESSION['tentativoNum']++;
     }
-} else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+} else{
     $error = "Il numero non è stato inserito";
 }
 ?>
