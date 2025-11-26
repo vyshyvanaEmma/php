@@ -9,7 +9,7 @@ if (!isset($_SESSION['sequenza'])) {
     for ($i = 0; $i < $lung; $i++) {
         $_SESSION['sequenza'][] = $colori[array_rand($colori)];
     }
-    $_SESSION['tentativi'] = 0;
+    $_SESSION['tentativi'] = -1;
     $_SESSION['storico'] = [];
 }
 
